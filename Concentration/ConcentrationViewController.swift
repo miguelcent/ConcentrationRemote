@@ -18,7 +18,7 @@ class ConcentrationViewController: UIViewController {
             flipCountLabel.text = ("Flips: \(flipCount)")
         }
     }  
-    
+    //Comentario de prueba
     @IBOutlet var cardButtons: [UIButton]!
     
     @IBOutlet weak var flipCountLabel: UILabel!
