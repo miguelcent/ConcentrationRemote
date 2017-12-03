@@ -7,20 +7,29 @@
 //
 
 import Foundation
+import GameplayKit
 
 class Concentration
 {
     var cards =  [Card]()
     
     func chooseCard(at index: Int) {
-        
+        if cards[index].isFaceUp {
+            cards[index].isFaceUp = false
+        } else {
+            cards[index].isFaceUp = true
+        }
     }
     
-    init(numberOfParisOfCards: Int) {
-        for _ in 1...numberOfParisOfCards {
+    init(numberOfPairsOfCards: Int) {
+        for _ in 1...numberOfPairsOfCards {
             let card = Card()
             cards += [card, card]
         }
-        // TODO shuffle the cards
+        // TODO shuffle the cards (solved??)
+        var sorted: NSArray
+        sorted = NSArray.init(array: cards)
+        sorted.shuffled()
+        cards = sorted as! [Card]
     }
 }
