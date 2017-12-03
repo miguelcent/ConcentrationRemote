@@ -8,7 +8,9 @@
 
 import UIKit
 
-class ConcentrationViewController: UIViewController {
+class ViewController: UIViewController {
+    //TODO solve issue with  initializer
+    var game = Concentration()
     
     var emojiChoices = ["👻","🎃","👻","🎃"]
     
@@ -46,4 +48,3 @@ class ConcentrationViewController: UIViewController {
     }
     
 }
-
