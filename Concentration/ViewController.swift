@@ -10,15 +10,17 @@ import UIKit
 
 class ViewController: UIViewController {
     //TODO solve issue with  initializer
-    lazy var game = Concentration(numberOfPairsOfCards: (cardButtons.count + 1) / 2)
+    lazy var game = Concentration(numberOfPairsOfCards: cardButtons.count / 2)
     
     var flipCount = 0{
         //didSet: everytime flipCount changes, do the action inside "didSet"
         didSet {
             flipCountLabel.text = ("Flips: \(flipCount)")
         }
-    }  
-   
+    }
+    
+    @IBOutlet weak var winMessage: UITextField!
+    
     @IBOutlet var cardButtons: [UIButton]!
     
     @IBOutlet weak var flipCountLabel: UILabel!
@@ -43,8 +45,11 @@ class ViewController: UIViewController {
                 button.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
             } else {
                 button.setTitle("", for: UIControlState.normal)
-                button.backgroundColor = card.isMatched ? #colorLiteral(red: 0.9372549057, green: 0.3490196168, blue: 0.1921568662, alpha: 0) : #colorLiteral(red: 0.9372549057, green: 0.3490196168, blue: 0.1921568662, alpha: 1)
+                button.backgroundColor = card.isMatched ? #colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1) : #colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 1)
             }
+        }
+        if game.gameFinished {
+            winMessage.isHidden = false
         }
     }
     
